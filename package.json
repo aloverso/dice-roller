@@ -1,0 +1,13 @@
+{
+  "name": "rpg-dice-roller",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "start": "./scripts/prod-start.sh",
+    "build": "./scripts/build.sh",
+    "test": "./scripts/test-all.sh",
+    "install": "./scripts/install-all.sh"
+  }
+}

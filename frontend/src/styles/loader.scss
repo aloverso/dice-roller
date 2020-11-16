@@ -1,0 +1,40 @@
+$animation-time: 8s;
+$roll-dice-time: $animation-time/4.5;
+
+.loader {
+  animation: roll_dice $roll-dice-time infinite ease-in;
+
+  .square {
+    background-color: $white;
+    width: 20px;
+    height: 20px;
+    opacity: 1;
+    transition: background-color 0.25s;
+  }
+
+  .square_one {
+    animation: square_one $animation-time infinite;
+  }
+}
+
+@keyframes roll_dice {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(180deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  75% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

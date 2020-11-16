@@ -1,0 +1,107 @@
+@import "sizes";
+@import "spacing";
+@import "borders";
+@import "flex";
+@import "typography";
+@import "colors";
+@import "loader";
+@import "css/bootstrap.css";
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+button {
+  font: unset;
+  text-align: unset;
+  background-color: unset;
+  border: unset;
+  cursor: pointer;
+  color: white;
+}
+
+body {
+  line-height: 1.5rem;
+  margin: 0;
+  font-size: 100%;
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-y: scroll;
+  background-color: $bg;
+  color: $white;
+}
+
+.width-100 {
+  width: 100%;
+}
+
+.height-100 {
+  height: 100%;
+}
+
+.height-full {
+  min-height: 100vh;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+a.no-link-format {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+a {
+  color: $bright-green;
+}
+table {
+  border-collapse: collapse;
+  margin-left: 1.5rem;
+}
+
+td {
+  padding: 0.75rem 0.25rem;
+}
+
+tr {
+  border-bottom: 1px solid $lightsteel;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.count {
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+}
+
+@media (min-width: $sm) {
+  .count {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}

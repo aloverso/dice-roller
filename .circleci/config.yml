@@ -1,0 +1,70 @@
+version: 2.1
+jobs:
+  build-and-test:
+    docker:
+      - image: circleci/node:latest
+      - image: circleci/postgres:12
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD:
+    steps:
+      - checkout
+      - run:
+          name: Setup postgres
+          command: |
+            sudo apt-get update
+            sudo apt-get install postgresql-client
+            createdb -h localhost dicelocal -U postgres
+      - run:
+          name: Install cypress dependencies
+          command: sudo apt-get install libgtk2.0-0 libgtk-3-0 libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb
+      - restore_cache:
+          keys:
+            - node-deps-v2-{{ .Branch }}-{{ checksum "package.json" }}
+            - node-deps-v2-{{ .Branch }}
+            - node-deps-v2
+      - run:
+          command: npm install
+      - save_cache:
+          key: node-deps-v2-{{ .Branch }}-{{ checksum "package.json" }}
+          paths:
+            - ~/.npm
+            - ~/.cache
+      - run:
+          command: npm test
+      - run:
+          name: Run feature tests
+          command: scripts/feature-tests.sh
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
+  deploy:
+    docker:
+      - image: google/cloud-sdk
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: install and initialize gcloud sdk
+          command: |
+            echo $GCLOUD_SERVICE_KEY | base64 --decode | gcloud auth activate-service-account --key-file=-
+            gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
+            gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
+      - run:
+          name: deploy
+          command: DB_PASS=$DB_DEV_PASS DB_NAME=diceprod DB_ENV=gcpprod CLOUD_SQL_CONNECTION_NAME=dice-roller-4681220:us-east4:dice-roller-db-gcp scripts/deploy.sh
+workflows:
+  build-test-deploy:
+    jobs:
+      - build-and-test:
+          filters:
+            branches:
+              only: main
+      - deploy:
+          requires:
+            - build-and-test
+          filters:
+            branches:
+              only: main
+  version: 2.1
