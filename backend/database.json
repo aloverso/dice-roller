@@ -13,11 +13,11 @@
     "password": "",
     "database": "dicetest"
   },
-  "gcpprod": {
+  "gcp": {
     "driver": "pg",
     "host": "/cloudsql/dice-roller-4681220:us-east4:dice-roller-db-gcp",
     "user": "postgres",
     "password": { "ENV": "DB_PASS" },
-    "database": "diceprod"
+    "database": "dice-roller-db-gcp"
   }
 }
