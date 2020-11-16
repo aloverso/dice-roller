@@ -41,8 +41,9 @@ export const About = (props: RouteComponentProps): ReactElement => {
 
           <h3 className="text-l mtm">why is there more history than just my roll history?</h3>
           <p>
-            Because it's not done yet. That's the very next upcoming feature! But to start, I wanted
-            a database, so we have a global database for all users.
+            Because it's not done yet. That's the very next upcoming thing! But to start, I wanted a
+            database, so we have a global database for all users. Who knows, maybe it's a feature -
+            your party can see if you're inflating your rolls!
           </p>
 
           <h3 className="text-l mtm">can I contribute?</h3>
