@@ -18,6 +18,6 @@
     "host": "/cloudsql/dice-roller-4681220:us-east4:dice-roller-db-gcp",
     "user": "postgres",
     "password": { "ENV": "DB_PASS" },
-    "database": "dice-roller-db-gcp"
+    "database": "diceprod"
   }
 }
