@@ -4,6 +4,7 @@ import { Link, RouteComponentProps } from "@reach/router";
 import d4 from "./assets/d4.svg";
 import d6 from "./assets/d6.svg";
 import d8 from "./assets/d8.svg";
+import d10 from "./assets/d10.svg";
 import d12 from "./assets/d12.svg";
 import d20 from "./assets/d20.svg";
 import { Die } from "./domain/Die";
@@ -73,6 +74,9 @@ export const App = (props: Props): ReactElement => {
           </button>
           <button onClick={(): void => handleClick("d8")}>
             <img className="width-100" src={d8} alt="d8" />
+          </button>
+          <button onClick={(): void => handleClick("d10")}>
+            <img className="width-100" src={d10} alt="d10" />
           </button>
           <button onClick={(): void => handleClick("d12")}>
             <img className="width-100" src={d12} alt="d12" />

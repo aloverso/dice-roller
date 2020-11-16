@@ -24,6 +24,9 @@ describe("<App />", () => {
     fireEvent.click(subject.getByAltText("d8"));
     expect(stubClient.capturedDie).toEqual("d8");
 
+    fireEvent.click(subject.getByAltText("d10"));
+    expect(stubClient.capturedDie).toEqual("d10");
+
     fireEvent.click(subject.getByAltText("d12"));
     expect(stubClient.capturedDie).toEqual("d12");
 
