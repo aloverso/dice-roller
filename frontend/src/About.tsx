@@ -15,7 +15,7 @@ export const About = (props: RouteComponentProps): ReactElement => {
       </div>
       <div className="row">
         <div className="col-sm-8 col-sm-offset-2">
-          <h1 className="text-xl">faq</h1>
+          <h1 className="text-xl">about</h1>
 
           <h3 className="text-l mtm">who built this?</h3>
           <p>
@@ -41,8 +41,13 @@ export const About = (props: RouteComponentProps): ReactElement => {
 
           <h3 className="text-l mtm">why is there more history than just my roll history?</h3>
           <p>
-            That's the very next upcoming feature! But right now it's a global database for all
-            users.
+            Because it's not done yet. That's the very next upcoming feature! But to start, I wanted
+            a database, so we have a global database for all users.
+          </p>
+
+          <h3 className="text-l mtm">can I contribute?</h3>
+          <p>
+            Sure thing, here's the <a href="https://github.com/aloverso/dice-roller">GitHub</a>.
           </p>
         </div>
       </div>
