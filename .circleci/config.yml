@@ -53,7 +53,7 @@ jobs:
             gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
       - run:
           name: deploy
-          command: DB_PASS=$DB_DEV_PASS DB_NAME=diceprod DB_ENV=gcpprod CLOUD_SQL_CONNECTION_NAME=dice-roller-4681220:us-east4:dice-roller-db-gcp scripts/deploy.sh
+          command: DB_PASS=$DB_PASS DB_NAME=diceprod DB_ENV=gcpprod CLOUD_SQL_CONNECTION_NAME=dice-roller-4681220:us-east4:dice-roller-db-gcp scripts/deploy.sh
 workflows:
   build-test-deploy:
     jobs:

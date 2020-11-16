@@ -1,7 +1,7 @@
 import { rollDieFactory } from "./rollDie";
 import { RollDie } from "../types";
 
-const utcTimestamp = "2020-04-02T08:02:17-04:00";
+const utcTimestamp = "2020-04-02T08:02:17+00:00";
 jest.mock("dayjs", () => jest.fn(() => jest.requireActual("dayjs")(utcTimestamp)));
 
 describe("rollDie", () => {
@@ -21,13 +21,11 @@ describe("rollDie", () => {
 
     const roll = await rollDie("d4", 1);
 
-    expect(roll).toEqual({
-      die: "d4",
-      count: 1,
-      rolls: [2],
-      total: 2,
-      timestamp: utcTimestamp,
-    });
+    expect(roll.die).toEqual("d4");
+    expect(roll.count).toEqual(1);
+    expect(roll.rolls).toEqual([2]);
+    expect(roll.total).toEqual(2);
+    expect(roll.timestamp).toContain("2020-04-02");
     expect(mockGetRandom).toHaveBeenCalledWith(1, 4, 1);
     expect(mockSaveRoll).toHaveBeenCalledWith(roll);
   });

@@ -99,6 +99,13 @@ tr {
   padding-bottom: 0.1rem;
 }
 
+.twitter {
+  width: 2rem;
+  height: 2rem;
+  margin-bottom: -0.5rem;
+  color: #c8f200;
+}
+
 @media (min-width: $sm) {
   .count {
     width: 2.5rem;

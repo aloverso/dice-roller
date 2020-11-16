@@ -65,7 +65,7 @@ export const History = (props: Props): ReactElement => {
           .sort()
           .reverse()
           .map((date) => (
-            <div className="col-xs-8 col-sm-offset-2 mbxl" key={date} data-testid="day">
+            <div className="col-sm-8 col-sm-offset-2 mbxl" key={date} data-testid="day">
               <h3 className="text-l">{dayOfWeekFormat(date)}</h3>
               <hr />
               <table>
