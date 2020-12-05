@@ -41,7 +41,7 @@ export const App = (props: Props): ReactElement => {
 
   const displayTotalOrLoader = (): ReactElement => {
     if (isLoading) {
-      return <Loader dieType={loadingDieType}/>;
+      return <Loader dieType={loadingDieType} />;
     } else if (roll) {
       return (
         <div>

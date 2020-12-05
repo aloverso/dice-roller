@@ -4,7 +4,8 @@ $roll-dice-time: $animation-time/4.5;
 .loader {
   animation: roll_dice $roll-dice-time infinite ease-in-out;
 
-  .base-shape, .square {
+  .base-shape,
+  .square {
     background-color: $white;
     width: 20px;
     height: 20px;
@@ -33,7 +34,7 @@ $roll-dice-time: $animation-time/4.5;
   }
   .diamond-narrow:after {
     background: none;
-    content: '';
+    content: "";
     position: absolute;
     left: -13px;
     top: 15px;
@@ -54,7 +55,7 @@ $roll-dice-time: $animation-time/4.5;
   }
   .diamond-wide:after {
     background: none;
-    content: '';
+    content: "";
     position: absolute;
     left: -14px;
     top: 13px;
@@ -73,7 +74,7 @@ $roll-dice-time: $animation-time/4.5;
   }
   .diamond:after {
     background: none;
-    content: '';
+    content: "";
     position: absolute;
     left: -14px;
     top: 14px;
@@ -81,14 +82,15 @@ $roll-dice-time: $animation-time/4.5;
     border-top-color: $white;
   }
 
-  $hex-side-width: .23px;
+  $hex-side-width: 0.23px;
   .hexagon {
     width: 100 * $hex-side-width;
     height: 57.735 * $hex-side-width;
     background: $white;
     position: relative;
   }
-  .hexagon::before, .hexagon::after {
+  .hexagon::before,
+  .hexagon::after {
     content: "";
     position: absolute;
     left: 0;
@@ -106,7 +108,7 @@ $roll-dice-time: $animation-time/4.5;
     border-top: 28.8675 * $hex-side-width solid $white;
   }
 
-  $hex-tall-horizontal-width: .21px;
+  $hex-tall-horizontal-width: 0.21px;
   $hex-tall-vertical-width: 1.1 * $hex-tall-horizontal-width;
   .hexagon-tall {
     width: 100 * $hex-tall-horizontal-width;
@@ -114,7 +116,8 @@ $roll-dice-time: $animation-time/4.5;
     background: $white;
     position: relative;
   }
-  .hexagon-tall::before, .hexagon-tall::after {
+  .hexagon-tall::before,
+  .hexagon-tall::after {
     content: "";
     position: absolute;
     left: 0;

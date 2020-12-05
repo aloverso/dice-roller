@@ -4,7 +4,7 @@ import { App } from "./App";
 import { StubClient } from "./test-objects/StubClient";
 import { generateRoll } from "./test-objects/factories";
 import { act } from "react-dom/test-utils";
-import {ALL_DICE} from './domain/Die'
+import { ALL_DICE } from "./domain/Die";
 
 describe("<App />", () => {
   let stubClient: StubClient;
