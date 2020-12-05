@@ -26,9 +26,3 @@ export const Loader = ({
     </div>
   );
 };
-
-// <div className="centering-block" role="progressbar">
-//   <div className="loader centered">
-//     <div className="square animation_roller"/>
-//   </div>
-// </div>
