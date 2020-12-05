@@ -4,6 +4,7 @@ import { App } from "./App";
 import { StubClient } from "./test-objects/StubClient";
 import { generateRoll } from "./test-objects/factories";
 import { act } from "react-dom/test-utils";
+import {ALL_DICE} from './domain/Die'
 
 describe("<App />", () => {
   let stubClient: StubClient;
@@ -51,6 +52,15 @@ describe("<App />", () => {
 
     act(() => stubClient.capturedObserver.onSuccess(generateRoll({})));
     expect(subject.queryByRole("progressbar")).not.toBeInTheDocument();
+  });
+
+  describe("loading animations", () => {
+    ALL_DICE.forEach((die) => {
+      it(`displays a unique loader for a ${die}`, () => {
+        fireEvent.click(subject.getByAltText(die));
+        expect(subject.queryByTitle(`${die}-spinner`)).toBeInTheDocument();
+      });
+    });
   });
 
   it("increments the count and sends", () => {

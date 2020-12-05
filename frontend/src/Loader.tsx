@@ -1,15 +1,34 @@
 import React, { ReactElement } from "react";
+import {Die} from './domain/Die'
 
-export const Loader = (): ReactElement => {
+export interface LoaderProps {
+  dieType: Die;
+}
+
+export const Loader = ({
+  dieType
+                       }: LoaderProps): ReactElement => {
+  // Type aliases cannot be used as a parameter type, so no [key: Die]
+  // in other words....no dice! £pun
+  const shapeMap: {[key: string]: string} = {
+    "d4": "triangle",
+    "d6": "square",
+    "d8": "diamond-narrow",
+    "d10": "diamond-wide",
+    "d12": "hexagon",
+    "d20": "hexagon-tall",
+  };
+
   return (
-    <div className="loader" role="progressbar">
-      <div className="square square_one" />
+    <div className="loader" role="progressbar" title={`${dieType}-spinner`}>
+      <div className={`base-shape animation_roller ${shapeMap[dieType]}`}>
+      </div>
     </div>
   );
 };
 
 // <div className="centering-block" role="progressbar">
 //   <div className="loader centered">
-//     <div className="square square_one"/>
+//     <div className="square animation_roller"/>
 //   </div>
 // </div>

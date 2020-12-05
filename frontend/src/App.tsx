@@ -23,8 +23,10 @@ export const App = (props: Props): ReactElement => {
   const [roll, setRoll] = useState<Roll | undefined>(undefined);
   const [count, setCount] = useState<number>(1);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [loadingDieType, setIsLoadingDieType] = useState<Die>("d4");
 
   const handleClick = (die: Die): void => {
+    setIsLoadingDieType(die);
     setIsLoading(true);
     props.client.rollDie(die, count, {
       onSuccess: (roll: Roll) => {
@@ -39,7 +41,7 @@ export const App = (props: Props): ReactElement => {
 
   const displayTotalOrLoader = (): ReactElement => {
     if (isLoading) {
-      return <Loader />;
+      return <Loader dieType={loadingDieType}/>;
     } else if (roll) {
       return (
         <div>
