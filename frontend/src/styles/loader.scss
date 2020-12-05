@@ -140,6 +140,10 @@ $roll-dice-time: $animation-time/4.5;
   }
 }
 
+.loader.loader-d4 {
+  animation: roll_dice_d4 $roll-dice-time infinite ease-in-out;
+}
+
 @keyframes roll_dice {
   0% {
     transform: rotate(0deg);
@@ -159,5 +163,28 @@ $roll-dice-time: $animation-time/4.5;
 
   100% {
     transform: rotate(360deg);
+  }
+}
+
+
+@keyframes roll_dice_d4 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(360deg);
+  }
+
+  50% {
+    transform: rotate(360deg);
+  }
+
+  75% {
+    transform: rotate(720deg);
+  }
+
+  100% {
+    transform: rotate(720deg);
   }
 }

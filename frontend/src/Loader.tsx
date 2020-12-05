@@ -18,7 +18,7 @@ export const Loader = ({ dieType }: LoaderProps): ReactElement => {
   };
 
   return (
-    <div className="loader" role="progressbar" title={`${dieType}-spinner`}>
+    <div className={`loader loader-${dieType}`} role="progressbar" title={`${dieType}-spinner`}>
       <div className={`base-shape animation_roller ${shapeMap[dieType]}`}></div>
     </div>
   );
