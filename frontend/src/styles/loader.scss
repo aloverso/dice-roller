@@ -2,19 +2,146 @@ $animation-time: 8s;
 $roll-dice-time: $animation-time/4.5;
 
 .loader {
-  animation: roll_dice $roll-dice-time infinite ease-in;
+  animation: roll_dice $roll-dice-time infinite ease-in-out;
 
+  .base-shape,
   .square {
     background-color: $white;
     width: 20px;
     height: 20px;
     opacity: 1;
     transition: background-color 0.25s;
+    transform-origin: center;
   }
 
-  .square_one {
-    animation: square_one $animation-time infinite;
+  .triangle {
+    background: none;
+    width: 0;
+    height: 0;
+    border-bottom: 20px solid $white;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
   }
+
+  .diamond-narrow {
+    background: none;
+    width: 0;
+    height: 0;
+    border: 13px solid transparent;
+    border-bottom: 15px solid $white;
+    position: relative;
+    top: -13px;
+  }
+  .diamond-narrow:after {
+    background: none;
+    content: "";
+    position: absolute;
+    left: -13px;
+    top: 15px;
+    width: 0;
+    height: 0;
+    border: 13px solid transparent;
+    border-top: 15px solid $white;
+  }
+
+  .diamond-wide {
+    background: none;
+    width: 0;
+    height: 0;
+    border: 14px solid transparent;
+    border-bottom: 13px solid $white;
+    position: relative;
+    top: -13px;
+  }
+  .diamond-wide:after {
+    background: none;
+    content: "";
+    position: absolute;
+    left: -14px;
+    top: 13px;
+    width: 0;
+    height: 0;
+    border: 14px solid transparent;
+    border-top: 13px solid $white;
+  }
+
+  .diamond {
+    background: none;
+    border: 14px solid transparent;
+    border-bottom-color: $white;
+    position: relative;
+    top: -14px;
+  }
+  .diamond:after {
+    background: none;
+    content: "";
+    position: absolute;
+    left: -14px;
+    top: 14px;
+    border: 14px solid transparent;
+    border-top-color: $white;
+  }
+
+  $hex-side-width: 0.23px;
+  .hexagon {
+    width: 100 * $hex-side-width;
+    height: 57.735 * $hex-side-width;
+    background: $white;
+    position: relative;
+  }
+  .hexagon::before,
+  .hexagon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 50 * $hex-side-width solid transparent;
+    border-right: 50 * $hex-side-width solid transparent;
+  }
+  .hexagon::before {
+    top: -28.8675 * $hex-side-width;
+    border-bottom: 28.8675 * $hex-side-width solid $white;
+  }
+  .hexagon::after {
+    bottom: -28.8675 * $hex-side-width;
+    border-top: 28.8675 * $hex-side-width solid $white;
+  }
+
+  $hex-tall-horizontal-width: 0.21px;
+  $hex-tall-vertical-width: 1.1 * $hex-tall-horizontal-width;
+  .hexagon-tall {
+    width: 100 * $hex-tall-horizontal-width;
+    height: 57.735 * $hex-tall-vertical-width;
+    background: $white;
+    position: relative;
+  }
+  .hexagon-tall::before,
+  .hexagon-tall::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 50 * $hex-tall-horizontal-width solid transparent;
+    border-right: 50 * $hex-tall-horizontal-width solid transparent;
+  }
+  .hexagon-tall::before {
+    top: -28.8675 * $hex-tall-horizontal-width;
+    border-bottom: 28.8675 * $hex-tall-horizontal-width solid $white;
+  }
+  .hexagon-tall::after {
+    bottom: -28.8675 * $hex-tall-horizontal-width;
+    border-top: 28.8675 * $hex-tall-horizontal-width solid $white;
+  }
+
+  .animation_roller {
+    animation: animation_roller $animation-time infinite;
+  }
+}
+
+.loader.loader-d4 {
+  animation: roll_dice_d4 $roll-dice-time infinite ease-in-out;
 }
 
 @keyframes roll_dice {
@@ -36,5 +163,27 @@ $roll-dice-time: $animation-time/4.5;
 
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes roll_dice_d4 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(360deg);
+  }
+
+  50% {
+    transform: rotate(360deg);
+  }
+
+  75% {
+    transform: rotate(720deg);
+  }
+
+  100% {
+    transform: rotate(720deg);
   }
 }
