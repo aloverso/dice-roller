@@ -1,5 +1,7 @@
 # Dice Roller
 
+[![build](https://circleci.com/gh/aloverso/dice-roller.svg?style=shield)](https://circleci.com/gh/aloverso/dice-roller)
+
 An Express/React/typescript bootstrapper app
 
 View it live at [http://rpgdiceroller.com](http://rpgdiceroller.com/)
