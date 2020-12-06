@@ -6,9 +6,7 @@ export interface LoaderProps {
 }
 
 export const Loader = ({ dieType }: LoaderProps): ReactElement => {
-  // Type aliases cannot be used as a parameter type, so no [key: Die]
-  // in other words....no dice! £pun
-  const shapeMap: { [key: string]: string } = {
+  const shapeMap: Record<Die, string> = {
     d4: "triangle",
     d6: "square",
     d8: "diamond-narrow",
