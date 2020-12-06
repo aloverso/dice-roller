@@ -2,6 +2,8 @@
 
 An Express/React/typescript bootstrapper app
 
+View it live at [http://rpgdiceroller.com](http://rpgdiceroller.com/)
+
 ## Getting Started
 
 This [typescript](https://www.typescriptlang.org/) repo is structured with two primary sub-folders:
