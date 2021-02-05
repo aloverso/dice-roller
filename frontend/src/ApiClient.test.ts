@@ -1,19 +1,27 @@
 import axios from "axios";
 import { ApiClient } from "./ApiClient";
-import { Error } from "./domain/Error";
 import { Client } from "./domain/Client";
 import { generateRoll } from "./test-objects/factories";
 import { Roll } from "./domain/Roll";
+import { FakeLocalStorage } from "./test-objects/FakeLocalStorage";
 
 jest.mock("axios");
 
 describe("ApiClient", () => {
   let apiClient: Client;
   let mockedAxios: jest.Mocked<typeof axios>;
+  let fakeLocalStorage: Storage;
 
   beforeEach(() => {
     mockedAxios = axios as jest.Mocked<typeof axios>;
     apiClient = ApiClient();
+
+    fakeLocalStorage = FakeLocalStorage();
+    Object.defineProperty(window, "localStorage", { writable: true, value: fakeLocalStorage });
+  });
+
+  afterEach(() => {
+    Object.defineProperty(window, "localStorage", { value: undefined });
   });
 
   describe("rollDie", () => {
@@ -40,6 +48,33 @@ describe("ApiClient", () => {
       apiClient.rollDie("d20", 1, observer);
     });
 
+    it("pushes roll data to local storage list", (done) => {
+      const roll1 = generateRoll({});
+      const roll2 = generateRoll({});
+      mockedAxios.get.mockResolvedValueOnce({ data: roll1 }).mockResolvedValueOnce({ data: roll2 });
+
+      const observer1 = {
+        onSuccess: (): void => {
+          expect(fakeLocalStorage.getItem("dice-roller-history")).toEqual(JSON.stringify([roll1]));
+          done();
+        },
+        onError: jest.fn(),
+      };
+
+      const observer2 = {
+        onSuccess: (): void => {
+          expect(fakeLocalStorage.getItem("dice-roller-history")).toEqual(
+            JSON.stringify([roll1, roll2])
+          );
+          done();
+        },
+        onError: jest.fn(),
+      };
+
+      apiClient.rollDie("d20", 1, observer1);
+      apiClient.rollDie("d20", 1, observer2);
+    });
+
     it("calls observer with error and type when GET fails", (done) => {
       mockedAxios.get.mockRejectedValue({});
 
@@ -55,9 +90,9 @@ describe("ApiClient", () => {
   });
 
   describe("getHistory", () => {
-    it("calls observer with successful training data", (done) => {
+    it("calls observer with successful history data", (done) => {
       const rolls = [generateRoll({}), generateRoll({})];
-      mockedAxios.get.mockResolvedValue({ data: rolls });
+      fakeLocalStorage.setItem("dice-roller-history", JSON.stringify(rolls));
 
       const observer = {
         onSuccess: (data: Roll[]): void => {
@@ -65,20 +100,6 @@ describe("ApiClient", () => {
           done();
         },
         onError: jest.fn(),
-      };
-
-      apiClient.getHistory(observer);
-    });
-
-    it("calls observer with system error when GET fails", (done) => {
-      mockedAxios.get.mockRejectedValue({});
-
-      const observer = {
-        onSuccess: jest.fn(),
-        onError: (error: Error): void => {
-          expect(error).toEqual(Error.SYSTEM_ERROR);
-          done();
-        },
       };
 
       apiClient.getHistory(observer);

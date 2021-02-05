@@ -6,14 +6,11 @@ jest.mock("dayjs", () => jest.fn(() => jest.requireActual("dayjs")(utcTimestamp)
 
 describe("rollDie", () => {
   let mockGetRandom: jest.Mock;
-  let mockSaveRoll: jest.Mock;
   let rollDie: RollDie;
 
   beforeEach(() => {
     mockGetRandom = jest.fn();
-    mockSaveRoll = jest.fn();
-    mockSaveRoll.mockResolvedValue({});
-    rollDie = rollDieFactory(mockGetRandom, mockSaveRoll);
+    rollDie = rollDieFactory(mockGetRandom);
   });
 
   it("constructs a roll and save it", async () => {
@@ -27,7 +24,6 @@ describe("rollDie", () => {
     expect(roll.total).toEqual(2);
     expect(roll.timestamp).toContain("2020-04-02");
     expect(mockGetRandom).toHaveBeenCalledWith(1, 4, 1);
-    expect(mockSaveRoll).toHaveBeenCalledWith(roll);
   });
 
   it("sums all values in a roll", async () => {
@@ -38,7 +34,6 @@ describe("rollDie", () => {
 
   it("returns a roll even if saveRoll fails", async () => {
     mockGetRandom.mockResolvedValue([1]);
-    mockSaveRoll.mockRejectedValue({});
     const roll = await rollDie("d12", 5);
     expect(roll.rolls).toEqual([1]);
   });

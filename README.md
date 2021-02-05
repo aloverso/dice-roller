@@ -20,20 +20,6 @@ For npm dependencies:
 ./scripts/install-all.sh
 ```
 
-### postgres
-
-If not already installed, install [postgres](https://www.postgresql.org/)
-
-Create postgres local DB:
-```shell script
-psql -c 'create database dicelocal;' -U postgres
-```
-
-Run database migrations:
-```shell script
-./scripts/db-migrate.sh
-```
-
 ## Development
 
 Start frontend dev server:
@@ -70,12 +56,6 @@ Fences are enforced via a linting-like command that will fail when any violation
 ```shell script
 npm --prefix=backend run fences
 npm --prefix=frontend run fences
-```
-
-### Adding DB migrations
-
-```shell script
-npm --prefix=backend run db-migrate create [migration-name] -- --sql-file
 ```
 
 ## Pushing changes
