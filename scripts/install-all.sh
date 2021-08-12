@@ -2,5 +2,5 @@
 
 set -e
 
-npm --prefix=frontend install
-npm --prefix=backend install
+npm --prefix=frontend install --production=false
+npm --prefix=backend install --production=false
