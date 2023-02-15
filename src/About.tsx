@@ -33,6 +33,14 @@ export const About = (): ReactElement => {
             React/Node app powered by API and database integrations.
           </p>
 
+          <h3 className="text-l mtm">how do I add my +3 to hit?</h3>
+          <p>
+            That's the neat thing - you don't! Good, clean tools are opinionated to prevent bloat. This
+            tool is of the opinion that adding modifiers to dice rolls heavily clutters to the interface
+            without any discernible value - especially given how the modifier changes for nearly every
+            roll. You'll just have to add those +3s in your head, my friend.
+          </p>
+
           <h3 className="text-l mtm">why is it so slow to generate a random dice roll?</h3>
           <p>
             A roll takes about 750ms to load because instead of generating JavaScript pseudo-random
