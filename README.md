@@ -10,12 +10,13 @@ View it live at [http://rpgdiceroller.com](http://rpgdiceroller.com/)
 
 This [typescript](https://www.typescriptlang.org/) repo is structured with two primary sub-folders:
 
- - **backend** - the [express](https://expressjs.com/) API server
- - **frontend** - the [react](https://reactjs.org/) web UI
- 
+- **backend** - the [express](https://expressjs.com/) API server
+- **frontend** - the [react](https://reactjs.org/) web UI
+
 ### npm Dependencies
 
 For npm dependencies:
+
 ```shell script
 ./scripts/install-all.sh
 ```
@@ -23,21 +24,25 @@ For npm dependencies:
 ## Development
 
 Start frontend dev server:
+
 ```shell script
 ./scripts/frontend-start.sh
 ```
 
 Start backend dev server:
+
 ```shell script
 ./scripts/backend-start.sh
 ```
 
 Run all [jest](https://jestjs.io/) tests, and linting:
+
 ```shell script
 ./scripts/test-all.sh
 ```
 
 Run [cypress](https://www.cypress.io/) feature tests:
+
 ```shell script
 ./scripts/feature-tests.sh
 ```
@@ -61,6 +66,7 @@ npm --prefix=frontend run fences
 ## Pushing changes
 
 Always push via ship-it ([why?](https://medium.com/@AnneLoVerso/ship-it-a-humble-script-for-low-risk-deployment-1b8ba99994f7))
+
 ```shell script
 ./scripts/ship-it.sh
 ```
@@ -70,6 +76,7 @@ Always push via ship-it ([why?](https://medium.com/@AnneLoVerso/ship-it-a-humble
 We use circleci.
 
 The pipeline is:
+
 1. npm install (frontend and backend)
 1. run all unit tests (frontend and backend)
 1. build code and run feature tests
@@ -78,11 +85,13 @@ The pipeline is:
 ## Deployment
 
 Build frontend, build backend, compile all into one directory:
+
 ```shell script
 ./scripts/build.sh
 ```
 
 Start the production server (frontend & backend)
+
 ```shell script
 ./scripts/prod-start.sh
 ```
@@ -94,6 +103,7 @@ First, make sure that [Google Cloud SDK](https://cloud.google.com/sdk/install) i
 Ensure you are logged in to the CLI and pointing to the correct project.
 
 This script generates the `app.yaml` and deploys the app:
+
 ```shell script
 ./scripts/deploy.sh
 ```

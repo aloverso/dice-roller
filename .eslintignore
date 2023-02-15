@@ -1,0 +1,5 @@
+build/
+src/serviceWorker.ts
+src/setupTests.ts
+cypress/plugins/index.js
+.next

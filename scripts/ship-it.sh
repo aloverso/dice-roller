@@ -5,8 +5,7 @@ cd $(git rev-parse --show-toplevel)
 set -e
 
 # format files
-npm --prefix=frontend run prettier
-npm --prefix=backend run prettier
+npm run prettier
 
 # check if uncommited changes
 changed_files=$(git status --porcelain | wc -l)
@@ -30,4 +29,4 @@ function print_success {
 }
 
 # run tests, feature tests, and push
-./scripts/test-all.sh && ./scripts/build.sh && ./scripts/feature-tests.sh && git push && print_success
+./scripts/test-all.sh && git push && print_success

@@ -1,2 +1,10 @@
 # code editors
 .idea
+.swc
+.next
+
+node_modules/
+
+# feature tests
+/cypress/videos/
+/cypress/screenshots/
