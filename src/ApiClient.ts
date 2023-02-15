@@ -9,7 +9,7 @@ export const ApiClient = (): Client => {
   const getRandom = (min: number, max: number, count: number): Promise<number[]> => {
     return axios
       .get(
-        `http://www.random.org/integers/?num=${count}&min=${min}&max=${max}&col=1&base=10&format=plain&rnd=new`
+        `https://www.random.org/integers/?num=${count}&min=${min}&max=${max}&col=1&base=10&format=plain&rnd=new`
       )
       .then((response: AxiosResponse<string | number>): number[] => {
         let data: string;
