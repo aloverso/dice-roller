@@ -39,7 +39,7 @@ describe("ApiClient", () => {
 
       apiClient.rollDie("d20", 2, dummyObserver);
       expect(mockedAxios.get).toHaveBeenCalledWith(
-        `http://www.random.org/integers/?num=2&min=1&max=20&col=1&base=10&format=plain&rnd=new`
+        `https://www.random.org/integers/?num=2&min=1&max=20&col=1&base=10&format=plain&rnd=new`
       );
     });
 
