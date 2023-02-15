@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
-import React, { ReactElement } from "react";
+import { ReactElement } from "react";
 import { Roller } from "../src/Roller";
 import { ApiClient } from "../src/ApiClient";
 

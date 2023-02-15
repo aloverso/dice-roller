@@ -1,5 +1,5 @@
 import "@styles/index.scss";
-import React, { ReactElement } from "react";
+import { ReactElement } from "react";
 import { AppProps } from "next/app";
 import Head from "next/head";
 

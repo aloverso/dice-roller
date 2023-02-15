@@ -64,22 +64,22 @@ export const Roller = (props: Props): ReactElement => {
       <div className="row ptl">
         <div className="col-xs-12 fdr fjc">
           <button onClick={(): void => handleClick("d4")}>
-            <img className="width-100" src={"/assets/d4.svg"} alt="d4" />
+            <picture><img className="width-100" src={"/assets/d4.svg"} alt="d4" /></picture>
           </button>
           <button onClick={(): void => handleClick("d6")}>
-            <img className="width-100" src={"/assets/d6.svg"} alt="d6" />
+            <picture><img className="width-100" src={"/assets/d6.svg"} alt="d6" /></picture>
           </button>
           <button onClick={(): void => handleClick("d8")}>
-            <img className="width-100" src={"/assets/d8.svg"} alt="d8" />
+            <picture><img className="width-100" src={"/assets/d8.svg"} alt="d8" /></picture>
           </button>
           <button onClick={(): void => handleClick("d10")}>
-            <img className="width-100" src={"/assets/d10.svg"} alt="d10" />
+            <picture><img className="width-100" src={"/assets/d10.svg"} alt="d10" /></picture>
           </button>
           <button onClick={(): void => handleClick("d12")}>
-            <img className="width-100" src={"/assets/d12.svg"} alt="d12" />
+            <picture><img className="width-100" src={"/assets/d12.svg"} alt="d12" /></picture>
           </button>
           <button onClick={(): void => handleClick("d20")}>
-            <img className="width-100" src={"/assets/d20.svg"} alt="d20" />
+            <picture><img className="width-100" src={"/assets/d20.svg"} alt="d20" /></picture>
           </button>
         </div>
       </div>

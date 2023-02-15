@@ -20,7 +20,9 @@ export const About = (): ReactElement => {
           <p>
             <a href="http://anneloverso.com/">Anne LoVerso</a>
             <a href="https://twitter.com/AnneLoVerso">
-              <img alt="twitter" className="twitter" src={"/assets/twitter.svg"} />
+              <picture>
+                <img alt="twitter" className="twitter" src={"/assets/twitter.svg"} />
+              </picture>
             </a>
           </p>
 
@@ -34,13 +36,13 @@ export const About = (): ReactElement => {
           <h3 className="text-l mtm">why is it so slow to generate a random dice roll?</h3>
           <p>
             A roll takes about 750ms to load because instead of generating JavaScript pseudo-random
-            numbers, we're actually using the <a href="https://www.random.org/">random.org</a> API
+            numbers, we&apos;re actually using the <a href="https://www.random.org/">random.org</a> API
             to generate rolls.
           </p>
 
           <h3 className="text-l mtm">can I contribute?</h3>
           <p>
-            Sure thing, here's the <a href="https://github.com/aloverso/dice-roller">GitHub</a>.
+            Sure thing, here&apos;s the <a href="https://github.com/aloverso/dice-roller">GitHub</a>.
           </p>
         </div>
       </div>
