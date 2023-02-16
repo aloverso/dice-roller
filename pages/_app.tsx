@@ -6,10 +6,10 @@ import Head from "next/head";
 const App = ({ Component, pageProps }: AppProps): ReactElement => {
   return (
     <div>
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPVERP6PDK"/>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPVERP6PDK" />
       <script
         dangerouslySetInnerHTML={{
-        __html: `
+          __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
@@ -20,6 +20,10 @@ const App = ({ Component, pageProps }: AppProps): ReactElement => {
       />
       <Head>
         <title>RPG Dice Roller</title>
+        <meta
+          name="description"
+          content="The simplest online RPG Dice Roller for tabletop games like Dungeons and Dragons (D&D). Roll any number or type of dice."
+        />
       </Head>
       <Component {...pageProps} />
     </div>
