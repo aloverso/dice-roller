@@ -24,6 +24,7 @@ const App = ({ Component, pageProps }: AppProps): ReactElement => {
           name="description"
           content="The simplest online RPG Dice Roller for tabletop games like Dungeons and Dragons (D&D). Roll any number or type of dice."
         />
+        <link rel="canonical" href="https://rpgdiceroller.com/"/>
       </Head>
       <Component {...pageProps} />
     </div>
