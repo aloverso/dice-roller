@@ -62,7 +62,9 @@ export const Roller = (props: Props): ReactElement => {
         </Link>
       </div>
       <div className="row ptl">
+        <h1 style={{ textIndent: "-10000px" }}>RPG Dice Roller</h1>
         <div className="col-xs-12 fdr fjc">
+          <h2 style={{ textIndent: "-10000px" }}>Pick dice type to roll:</h2>
           <button onClick={(): void => handleClick("d4")}>
             <picture>
               <img className="width-100" src={"/assets/d4.svg"} alt="d4" />
@@ -97,6 +99,7 @@ export const Roller = (props: Props): ReactElement => {
       </div>
 
       <div className="row ptl">
+        <h2 style={{ textIndent: "-10000px" }}>Pick number of dice to roll:</h2>
         <div className="col-xs-12 fdr fjc text-xl">
           <span className="prd">rolling</span>
           <button

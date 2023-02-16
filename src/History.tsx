@@ -61,6 +61,7 @@ export const History = (props: Props): ReactElement => {
         </Link>
       </div>
       <div className="row">
+        <h1 style={{ textIndent: "-10000px" }}>History</h1>
         {Object.keys(groupedHistory)
           .sort()
           .reverse()
